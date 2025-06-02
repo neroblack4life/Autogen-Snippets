@@ -1,0 +1,54 @@
+Summary of AgentChat Tutorial - Agents Page (https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html):
+
+This page introduces the concept of Agents in AgentChat, focusing on the built-in `AssistantAgent`.
+
+Key Concepts & Features:
+-   **Common Agent Attributes/Methods:** All agents share `name`, `description`, `on_messages()` (stateful, takes new messages, returns `Response`), `on_messages_stream()` (streaming version), `on_reset()`, and `run()`/`run_stream()` (convenience methods matching Team interface).
+-   **AssistantAgent:**
+    -   A built-in agent using an LLM and capable of using tools.
+    -   Code example shows initialization with `name`, `model_client` (OpenAI), `tools` (a custom `web_search` function), and `system_message`.
+-   **Getting Responses (`on_messages`):**
+    -   Demonstrates calling `agent.on_messages()` with a list of new messages (`TextMessage`) and a `CancellationToken`.
+    -   Returns a `Response` object containing `chat_message` (final response) and `inner_messages` (agent's thought process, including tool calls/results like `ToolCallRequestEvent`, `ToolCallExecutionEvent`, `ToolCallSummaryMessage`).
+    -   Emphasizes that `on_messages` is stateful and should be called with *new* messages, not the full history.
+    -   Notes that tools are executed directly within the `on_messages` call (unlike v0.2).
+-   **Multi-Modal Input:**
+    -   `AssistantAgent` handles `MultiModalMessage` inputs (containing text and `autogen_core.Image`).
+    -   Code example shows creating a `MultiModalMessage` and passing it to `on_messages()`.
+-   **Streaming Messages (`on_messages_stream`):**
+    -   Returns an async generator yielding internal events/messages followed by the final `Response`.
+    -   Code example shows using `Console` to print streamed messages, including tool calls and final response, along with stats (`output_stats=True`).
+    -   `run_stream()` provides the same behavior with the Team interface.
+-   **Using Tools:**
+    -   Explains Tool Calling/Function Calling concept in LLMs.
+    -   `AssistantAgent` uses tools (Python functions or `BaseTool` subclasses).
+    -   By default, returns tool output as `ToolCallSummaryMessage`.
+    -   `reflect_on_tool_use=True` makes the LLM summarize tool output instead.
+    -   **Built-in Tools:** Mentions tools available in `autogen_ext.tools` (e.g., `graphrag`, `http`, `langchain`, `mcp`).
+    -   **Function Tool:** Python functions are automatically converted to `FunctionTool`, with schema generated from signature/docstring. Example shows `FunctionTool(web_search_func, ...)` and its generated schema.
+    -   **MCP Tools:** Shows using `mcp_server_tools()` to get tools from an MCP server (e.g., `mcp-server-fetch`) and using them with `AssistantAgent`. Example fetches and summarizes a Wikipedia page.
+    -   **Langchain Tools:** Shows wrapping Langchain tools (e.g., `PythonAstREPLTool`) with `LangChainToolAdapter`. Example uses it to query a pandas DataFrame.
+-   **Parallel Tool Calls:**
+    -   Supported by some models; `AssistantAgent` calls them in parallel by default if the model provides multiple calls.
+    -   Can be disabled at the model client level (e.g., `OpenAIChatCompletionClient(parallel_tool_calls=False)`).
+-   **Running an Agent in a Loop:** Mentions that `AssistantAgent` runs one step at a time and refers to "Single-Agent Team" for running until a condition (like no more tool calls) is met.
+-   **Structured Output:**
+    -   Allows models to return JSON conforming to a Pydantic `BaseModel` schema.
+    -   Set via `output_content_type=YourBaseModel` in `AssistantAgent`.
+    -   Agent returns a `StructuredMessage` with content of the specified Pydantic type.
+    -   Useful for integrating responses and Chain-of-Thought.
+    -   By default, requires reflection (`reflect_on_tool_use=True`) when `output_content_type` is set.
+    -   Code example shows defining an `AgentResponse` Pydantic model and using it.
+-   **Streaming Tokens:**
+    -   Enabled via `model_client_stream=True` in `AssistantAgent`.
+    -   Requires model API support.
+    -   Yields `ModelClientStreamingChunkEvent` messages during streaming.
+    -   Code examples show using `on_messages_stream` and `run_stream` with token streaming enabled.
+-   **Using Model Context:**
+    -   `model_context` parameter in `AssistantAgent` accepts a `ChatCompletionContext` object.
+    -   Default is `UnboundedChatCompletionContext` (full history).
+    -   `BufferedChatCompletionContext(buffer_size=n)` limits history to last `n` messages.
+    -   `TokenLimitedChatCompletionContext` limits by token count.
+    -   Code example shows using `BufferedChatCompletionContext`.
+-   **Other Preset Agents:** Lists other available agents like `UserProxyAgent`, `CodeExecutorAgent`, `OpenAIAssistantAgent`, `MultimodalWebSurfer`, `FileSurfer`, `VideoSurfer`.
+-   **Next Step:** Points to the "Teams" section of the tutorial.

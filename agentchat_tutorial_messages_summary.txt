@@ -1,0 +1,21 @@
+Summary of AgentChat Tutorial - Messages Page (https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/messages.html):
+
+This page explains the role and types of messages used for communication within AgentChat.
+
+Key Concepts:
+-   **Purpose:** Messages facilitate communication between agents, orchestrators, and applications.
+-   **Categories:** Messages fall into two main types:
+    1.  **Agent-Agent Messages:** Used for communication between different agents.
+        -   Subclasses of `BaseChatMessage`.
+        -   Examples:
+            -   `TextMessage`: For simple text content. Code snippet shows creation: `TextMessage(content="Hello, world!", source="User")`.
+            -   `MultiModalMessage`: For content including text and images (`autogen_core.Image`). Code snippet demonstrates creating one with text and an image fetched via `requests` and processed with `PIL`.
+        -   These messages can be passed to agents via `on_messages` or as tasks to a team's `run()` method.
+    2.  **Internal Events:** Messages internal to an agent, used for communicating events or actions within the agent itself.
+        -   Subclasses of `BaseAgentEvent`.
+        -   Examples: `ToolCallRequestEvent`, `ToolCallExecutionEvent`.
+        -   Typically created by the agent and included in the `inner_messages` field of the `Response` object returned by `on_messages`. Useful for custom agents communicating with external entities like UIs.
+-   **Custom Message Types:** Users can create custom message types by subclassing `BaseChatMessage` or `BaseAgentEvent` for tailored application needs, especially useful when building custom agents.
+-   **Further Reading:** Directs users to the `messages` module documentation for a full list of supported messages.
+
+The next step indicated in the tutorial is the "Agents" section.
