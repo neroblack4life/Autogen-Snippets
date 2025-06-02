@@ -1,0 +1,21 @@
+# Snippets from https://microsoft.github.io/autogen/stable/
+
+# Snippet 0 (plaintext)
+pip install -U magentic-one-cli
+m1 "Find flights from Seattle to Paris and format the result in a table"
+
+# Snippet 1 (plaintext)
+pip install -U autogenstudio
+autogenstudio ui --port 8080 --appdir ./myapp
+
+# Snippet 2 (plaintext)
+# pip install -U "autogen-agentchat" "autogen-ext[openai]"
+import asyncio
+from autogen_agentchat.agents import AssistantAgent
+from autogen_ext.models.openai import OpenAIChatCompletionClient
+
+async def main() -> None:
+    agent = AssistantAgent("assistant", OpenAIChatCompletionClient(model="gpt-4o"))
+    print(await agent.run(task="Say 'Hello World!'"))
+
+asyncio.run(main())

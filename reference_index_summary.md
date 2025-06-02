@@ -1,0 +1,320 @@
+# API Reference Index Summary
+
+## AutoGen AgentChat
+
+*   `autogen_agentchat`
+    *   `EVENT_LOGGER_NAME`
+    *   `TRACE_LOGGER_NAME`
+*   `autogen_agentchat.messages`
+    *   `AgentEvent`
+    *   `BaseAgentEvent`
+    *   `BaseChatMessage`
+    *   `BaseMessage`
+    *   `BaseTextChatMessage`
+    *   `ChatMessage`
+    *   `HandoffMessage`
+    *   `MemoryQueryEvent`
+    *   `ModelClientStreamingChunkEvent`
+    *   `MultiModalMessage`
+    *   `StopMessage`
+    *   `StructuredContentType`
+    *   `StructuredMessage`
+    *   `TextMessage`
+    *   `ThoughtEvent`
+    *   `ToolCallExecutionEvent`
+    *   `ToolCallRequestEvent`
+    *   `ToolCallSummaryMessage`
+    *   `UserInputRequestedEvent`
+*   `autogen_agentchat.agents`
+    *   `AssistantAgent`
+    *   `BaseChatAgent`
+    *   `CodeExecutorAgent`
+    *   `SocietyOfMindAgent`
+    *   `UserProxyAgent`
+*   `autogen_agentchat.teams`
+    *   `BaseGroupChat`
+    *   `MagenticOneGroupChat`
+    *   `RoundRobinGroupChat`
+    *   `SelectorGroupChat`
+    *   `Swarm`
+*   `autogen_agentchat.base`
+    *   `AndTerminationCondition`
+    *   `ChatAgent`
+    *   `Handoff`
+    *   `OrTerminationCondition`
+    *   `Response`
+    *   `TaskResult`
+    *   `TaskRunner`
+    *   `Team`
+    *   `TerminatedException`
+    *   `TerminationCondition`
+*   `autogen_agentchat.conditions`
+    *   `ExternalTermination`
+    *   `FunctionCallTermination`
+    *   `HandoffTermination`
+    *   `MaxMessageTermination`
+    *   `SourceMatchTermination`
+    *   `StopMessageTermination`
+    *   `TextMentionTermination`
+    *   `TextMessageTermination`
+    *   `TimeoutTermination`
+    *   `TokenUsageTermination`
+*   `autogen_agentchat.ui`
+    *   `Console()`
+    *   `UserInputManager`
+*   `autogen_agentchat.state`
+    *   `AssistantAgentState`
+    *   `BaseGroupChatManagerState`
+    *   `BaseState`
+    *   `ChatAgentContainerState`
+    *   `MagenticOneOrchestratorState`
+    *   `RoundRobinManagerState`
+    *   `SelectorManagerState`
+    *   `SocietyOfMindAgentState`
+    *   `SwarmManagerState`
+    *   `TeamState`
+
+## AutoGen Core
+
+*   `autogen_core`
+    *   `Agent`
+    *   `AgentId`
+    *   `AgentProxy`
+    *   `AgentMetadata`
+    *   `AgentRuntime`
+    *   `BaseAgent`
+    *   `CacheStore`
+    *   `InMemoryStore`
+    *   `CancellationToken`
+    *   `AgentInstantiationContext`
+    *   `TopicId`
+    *   `Subscription`
+    *   `MessageContext`
+    *   `AgentType`
+    *   `SubscriptionInstantiationContext`
+    *   `MessageHandlerContext`
+    *   `MessageSerializer`
+    *   `UnknownPayload`
+    *   `Image`
+    *   `RoutedAgent`
+    *   `ClosureAgent`
+    *   `ClosureContext`
+    *   `message_handler()`
+    *   `event()`
+    *   `rpc()`
+    *   `FunctionCall`
+    *   `TypeSubscription`
+    *   `DefaultSubscription`
+    *   `default_subscription()`
+    *   `type_subscription()`
+    *   `TypePrefixSubscription`
+    *   `JSON_DATA_CONTENT_TYPE`
+    *   `PROTOBUF_DATA_CONTENT_TYPE`
+    *   `SingleThreadedAgentRuntime`
+    *   `ROOT_LOGGER_NAME`
+    *   `EVENT_LOGGER_NAME`
+    *   `TRACE_LOGGER_NAME`
+    *   `Component`
+    *   `ComponentBase`
+    *   `ComponentFromConfig`
+    *   `ComponentLoader`
+    *   `ComponentModel`
+    *   `ComponentSchemaType`
+    *   `ComponentToConfig`
+    *   `is_component_class()`
+    *   `is_component_instance()`
+    *   `DropMessage`
+    *   `InterventionHandler`
+    *   `DefaultInterventionHandler`
+    *   `ComponentType`
+*   `autogen_core.code_executor`
+    *   `Alias`
+    *   `CodeBlock`
+    *   `CodeExecutor`
+    *   `CodeResult`
+    *   `FunctionWithRequirements`
+    *   `FunctionWithRequirementsStr`
+    *   `ImportFromModule`
+    *   `with_requirements()`
+*   `autogen_core.models`
+    *   `AssistantMessage`
+    *   `ChatCompletionClient`
+    *   `ChatCompletionTokenLogprob`
+    *   `CreateResult`
+    *   `FunctionExecutionResult`
+    *   `FunctionExecutionResultMessage`
+    *   `ModelCapabilities`
+    *   `ModelFamily`
+    *   `ModelInfo`
+    *   `RequestUsage`
+    *   `SystemMessage`
+    *   `TopLogprob`
+    *   `UserMessage`
+    *   `validate_model_info()`
+*   `autogen_core.model_context`
+    *   `BufferedChatCompletionContext`
+    *   `ChatCompletionContext`
+    *   `ChatCompletionContextState`
+    *   `HeadAndTailChatCompletionContext`
+    *   `TokenLimitedChatCompletionContext`
+    *   `UnboundedChatCompletionContext`
+*   `autogen_core.tools`
+    *   `BaseTool`
+    *   `BaseToolWithState`
+    *   `FunctionTool`
+    *   `ParametersSchema`
+    *   `Tool`
+    *   `ToolSchema`
+*   `autogen_core.tool_agent`
+    *   `InvalidToolArgumentsException`
+    *   `ToolAgent`
+    *   `ToolException`
+    *   `ToolExecutionException`
+    *   `ToolNotFoundException`
+    *   `tool_agent_caller_loop()`
+*   `autogen_core.memory`
+    *   `ListMemory`
+    *   `Memory`
+    *   `MemoryContent`
+    *   `MemoryMimeType`
+    *   `MemoryQueryResult`
+    *   `UpdateContextResult`
+*   `autogen_core.exceptions`
+    *   `CantHandleException`
+    *   `MessageDroppedException`
+    *   `NotAccessibleError`
+    *   `UndeliverableException`
+*   `autogen_core.logging`
+    *   `AgentConstructionExceptionEvent`
+    *   `DeliveryStage`
+    *   `LLMCallEvent`
+    *   `LLMStreamEndEvent`
+    *   `LLMStreamStartEvent`
+    *   `MessageDroppedEvent`
+    *   `MessageEvent`
+    *   `MessageHandlerExceptionEvent`
+    *   `MessageKind`
+    *   `ToolCallEvent`
+
+## AutoGen Extensions
+
+*   `autogen_ext.agents.magentic_one`
+    *   `MagenticOneCoderAgent`
+*   `autogen_ext.agents.openai`
+    *   `OpenAIAssistantAgent`
+*   `autogen_ext.agents.web_surfer`
+    *   `MultimodalWebSurfer`
+    *   `PlaywrightController`
+*   `autogen_ext.agents.file_surfer`
+    *   `FileSurfer`
+*   `autogen_ext.agents.video_surfer`
+    *   `VideoSurfer`
+    *   `autogen_ext.agents.video_surfer.tools`
+        *   `extract_audio()`
+        *   `get_screenshot_at()`
+        *   `get_video_length()`
+        *   `save_screenshot()`
+        *   `transcribe_audio_with_timestamps()`
+        *   `transcribe_video_screenshot()`
+*   `autogen_ext.teams.magentic_one`
+    *   `MagenticOne`
+*   `autogen_ext.models.cache`
+    *   `ChatCompletionCache`
+*   `autogen_ext.models.openai`
+    *   `OpenAIChatCompletionClient`
+    *   `AzureOpenAIChatCompletionClient`
+    *   `BaseOpenAIChatCompletionClient`
+    *   `AzureOpenAIClientConfigurationConfigModel`
+    *   `OpenAIClientConfigurationConfigModel`
+    *   `BaseOpenAIClientConfigurationConfigModel`
+    *   `CreateArgumentsConfigModel`
+*   `autogen_ext.models.replay`
+    *   `ReplayChatCompletionClient`
+*   `autogen_ext.models.azure`
+    *   `AzureAIChatCompletionClient`
+    *   `AzureAIChatCompletionClientConfig`
+*   `autogen_ext.models.anthropic`
+    *   `AnthropicChatCompletionClient`
+    *   `AnthropicClientConfiguration`
+    *   `AnthropicClientConfigurationConfigModel`
+    *   `BaseAnthropicChatCompletionClient`
+    *   `CreateArgumentsConfigModel`
+*   `autogen_ext.models.semantic_kernel`
+    *   `SKChatCompletionAdapter`
+*   `autogen_ext.models.ollama`
+    *   `BaseOllamaClientConfigurationConfigModel`
+    *   `CreateArgumentsConfigModel`
+    *   `OllamaChatCompletionClient`
+*   `autogen_ext.models.llama_cpp`
+    *   `LlamaCppChatCompletionClient`
+*   `autogen_ext.tools.azure`
+    *   `AzureAISearchConfig`
+    *   `AzureAISearchTool`
+    *   `BaseAzureAISearchTool`
+    *   `SearchQuery`
+    *   `SearchResult`
+    *   `SearchResults`
+*   `autogen_ext.tools.code_execution`
+    *   `CodeExecutionInput`
+    *   `CodeExecutionResult`
+    *   `PythonCodeExecutionTool`
+*   `autogen_ext.tools.graphrag`
+    *   `GlobalContextConfig`
+    *   `GlobalDataConfig`
+    *   `GlobalSearchTool`
+    *   `GlobalSearchToolArgs`
+    *   `GlobalSearchToolReturn`
+    *   `LocalContextConfig`
+    *   `LocalDataConfig`
+    *   `LocalSearchTool`
+    *   `LocalSearchToolArgs`
+    *   `LocalSearchToolReturn`
+    *   `MapReduceConfig`
+    *   `SearchConfig`
+*   `autogen_ext.tools.http`
+    *   `HttpTool`
+*   `autogen_ext.tools.langchain`
+    *   `LangChainToolAdapter`
+*   `autogen_ext.tools.mcp`
+    *   `SseMcpToolAdapter`
+    *   `SseServerParams`
+    *   `StdioMcpToolAdapter`
+    *   `StdioServerParams`
+    *   `mcp_server_tools()`
+*   `autogen_ext.tools.semantic_kernel`
+    *   `KernelFunctionFromTool`
+*   `autogen_ext.code_executors.local`
+    *   `LocalCommandLineCodeExecutor`
+*   `autogen_ext.code_executors.docker`
+    *   `DockerCommandLineCodeExecutor`
+*   `autogen_ext.code_executors.jupyter`
+    *   `JupyterCodeExecutor`
+    *   `JupyterCodeResult`
+*   `autogen_ext.code_executors.azure`
+    *   `ACADynamicSessionsCodeExecutor`
+    *   `TokenProvider`
+*   `autogen_ext.cache_store.diskcache`
+    *   `DiskCacheStore`
+    *   `DiskCacheStoreConfig`
+*   `autogen_ext.cache_store.redis`
+    *   `RedisStore`
+    *   `RedisStoreConfig`
+*   `autogen_ext.runtimes.grpc`
+    *   `GrpcWorkerAgentRuntime`
+    *   `GrpcWorkerAgentRuntimeHost`
+    *   `GrpcWorkerAgentRuntimeHostServicer`
+*   `autogen_ext.auth.azure`
+    *   `AzureTokenProvider`
+    *   `TokenProviderConfig`
+*   `autogen_ext.experimental.task_centric_memory`
+    *   `MemoryController`
+    *   `autogen_ext.experimental.task_centric_memory.utils`
+        *   `Apprentice`
+        *   `ChatCompletionClientRecorder`
+        *   `Grader`
+        *   `PageLogger`
+        *   `Teachability`
+
+[Previous](https://microsoft.github.io/autogen/stable/user-guide/FAQ.html)
+
+[Next](https://microsoft.github.io/autogen/stable/reference/autogen_agentchat.html)
